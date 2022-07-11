@@ -5,55 +5,18 @@ import { Popover, Transition } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import { ThemeSelector } from "./ThemeSelector";
 import logo from "../public/ProfilePicturePhoto.jpg";
+import Link from "next/link";
 
-// const navigation = [
-//   { name: "challenges", href: "#" },
-// ];
+const navigation = [
+  { name: "Home", href: "/" },
+  { name: "All challenges", href: "/challenges" },
+  { name: "About", href: "/about" },
+];
 
-export default function Header() {
+export function Header() {
   return (
-    <div className="relative bg-gray-50 dark:bg-black overflow-hidden">
-      <div
-        className="hidden sm:block sm:absolute sm:inset-y-0 sm:h-full sm:w-full"
-        aria-hidden="true"
-      >
-        <div className="relative h-full max-w-7xl mx-auto">
-          <svg
-            className="absolute right-full transform translate-y-1/4 translate-x-1/4 lg:translate-x-1/2"
-            width={404}
-            height={784}
-            fill="none"
-            viewBox="0 0 404 784"
-          >
-            <defs>
-              <pattern
-                id="f210dbf6-a58d-4871-961e-36d5016a0f49"
-                x={0}
-                y={0}
-                width={20}
-                height={20}
-                patternUnits="userSpaceOnUse"
-              >
-                <rect
-                  x={0}
-                  y={0}
-                  width={4}
-                  height={4}
-                  className="text-gray-200"
-                  fill="currentColor"
-                />
-              </pattern>
-            </defs>
-            <rect
-              width={404}
-              height={784}
-              fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"
-            />
-          </svg>
-        </div>
-      </div>
-
-      <div className="relative pt-6 pb-16 sm:pb-24">
+    <div className="relative  overflow-hidden">
+      <div className="relative pt-6 pb-4 sm:pb-10">
         <Popover>
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <nav
@@ -74,15 +37,15 @@ export default function Header() {
                 </div>
               </div>
               <div className="hidden md:flex md:space-x-10">
-                {/* {navigation.map((item) => (
-                  <a
+                {navigation.map((item) => (
+                  <Link
                     key={item.name}
                     href={item.href}
-                    className="font-medium text-gray-500 hover:text-gray-900"
+                    className="font-medium "
                   >
                     {item.name}
-                  </a>
-                ))} */}
+                  </Link>
+                ))}
               </div>
               <div className="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
                 <span className="inline-flex rounded-md shadow">
@@ -111,53 +74,28 @@ export default function Header() {
                     <Image src={logo} alt={"Logo"} height={50} width={50} />
                   </div>
                   <div className="-mr-2">
-                    <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <Popover.Button className=" rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                       <span className="sr-only">Close menu</span>
                       <XIcon className="h-6 w-6" aria-hidden="true" />
                     </Popover.Button>
                   </div>
                 </div>
                 <div className="px-2 pt-2 pb-3">
-                  {/* {navigation.map((item) => (
-                    <a
+                  {navigation.map((item) => (
+                    <Link
                       key={item.name}
                       href={item.href}
-                      className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+                      className="block px-3 py-2 rounded-md text-base font-medium "
                     >
                       {item.name}
-                    </a>
-                  ))} */}
+                    </Link>
+                  ))}
                 </div>
                 <ThemeSelector />
               </div>
             </Popover.Panel>
           </Transition>
         </Popover>
-
-        <main className="mt-16 mx-auto max-w-7xl px-4 sm:mt-24">
-          <div className="text-center">
-            <h1 className="text-4xl tracking-tight font-extrabold dark:text-white text-gray-900 sm:text-5xl md:text-6xl">
-              <span className="block xl:inline">Solutions for </span>
-              <span className="block text-indigo-600 xl:inline">
-                Eazy Develop
-              </span>
-            </h1>
-            <p className="mt-3 max-w-md mx-auto text-base dark:text-white text-gray-900 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-              This website contains all the solutions for the challenges taken
-              by Shrey Batra. You can follow him on linkedin to know more!.
-            </p>
-            <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-              <div className="rounded-md shadow">
-                <a
-                  href="#charts"
-                  className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-                >
-                  Get started
-                </a>
-              </div>
-            </div>
-          </div>
-        </main>
       </div>
     </div>
   );

@@ -1,14 +1,12 @@
 import type { NextPage } from "next";
-import Charts from "../components/Charts";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import { Charts } from "../components/Charts";
+import { Container } from "../components/Container";
 
 const Home: NextPage = () => {
   return (
     <>
-      <Header />
-      <Charts />
-      <Footer />
+      <Container />
+      <Charts showButtons={true} />
     </>
   );
 };

@@ -53,12 +53,12 @@ const charts = [
   },
 ];
 
-export default function Charts() {
+export function Charts({ showButtons }: { showButtons: boolean }) {
   return (
-    <div className="bg-white dark:bg-black" id="charts">
+    <div id="charts">
       <div className="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8">
         <div className="sm:flex sm:items-baseline sm:justify-between">
-          <p className="text-xl text-black dark:text-white">Charts</p>
+          <p className="text-xl">Charts</p>
         </div>
 
         <div className="mt-6 grid grid-cols-1 gap-y-10 sm:grid-cols-3 sm:gap-y-0 sm:gap-x-6 lg:gap-x-8">
@@ -70,28 +70,30 @@ export default function Charts() {
             </div>
           ))}
         </div>
-        <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
-          <div className="rounded-md mr-8 mb-8 shadow">
-            <a
-              href="https://charts.mongodb.com/charts-aggregations-challenge-ea-anwef/public/dashboards/62ba6f7d-2b11-44af-8901-6d176cdda4fb"
-              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-              target={"_blank"}
-              rel="noreferrer"
-            >
-              View on MongoDb
-            </a>
+        {showButtons && (
+          <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
+            <div className="rounded-md mr-8 mb-8 shadow">
+              <a
+                href="https://charts.mongodb.com/charts-aggregations-challenge-ea-anwef/public/dashboards/62ba6f7d-2b11-44af-8901-6d176cdda4fb"
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+                target={"_blank"}
+                rel="noreferrer"
+              >
+                View on MongoDb
+              </a>
+            </div>
+            <div className="rounded-md shadow">
+              <a
+                href="https://theuniquecoder.hashnode.dev/introduction-to-mongodb-aggregations-and-eazy-develop-challenge-2"
+                target={"_blank"}
+                rel="noreferrer"
+                className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
+              >
+                View Blog
+              </a>
+            </div>
           </div>
-          <div className="rounded-md shadow">
-            <a
-              href="https://theuniquecoder.hashnode.dev/introduction-to-mongodb-aggregations-and-eazy-develop-challenge-2"
-              target={"_blank"}
-              rel="noreferrer"
-              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10"
-            >
-              View Blog
-            </a>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
